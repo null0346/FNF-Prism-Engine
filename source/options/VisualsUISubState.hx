@@ -77,6 +77,14 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Watermark Style:',
+		"How would you like your Watermark to look?",
+		'watermarkStyle',
+		'string',
+		'Forever Engine',
+		["OS 'Engine'", 'Dave Engine', 'JS Engine', 'Forever Engine', 'Prism Engine', "Null 'Engine'", 'Hide']);
+		addOption(option);
+
 		var option:Option = new Option('Health Bar Transparency',
 			'How much transparent should the health bar and icons be.',
 			'healthBarAlpha',

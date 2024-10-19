@@ -1042,6 +1042,51 @@ class PlayState extends MusicBeatState
 		}
 		updateTime = showTime;
 
+		if (ClientPrefs.watermarkStyle == "OS 'Engine'") {
+			EngineWatermark = new FlxText(4,FlxG.height * 0.9 + 50,0,"", 16);
+			EngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.scrollFactor.set();
+			add(EngineWatermark);
+			EngineWatermark.text = SONG.song + " " + CoolUtil.difficultyString() + " | PRE v" + MainMenuState.psychEngineJSVersion;
+		}
+		if (ClientPrefs.watermarkStyle == 'Forever Engine') {
+			EngineWatermark = new FlxText(0, FlxG.height - 30, 0, "Prism Engine v" + MainMenuState.psychEngineJSVersion, 16);
+			EngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.updateHitbox();
+			EngineWatermark.x = FlxG.width - EngineWatermark.width - 5;
+			EngineWatermark.scrollFactor.set();
+			add(EngineWatermark);
+		}
+		if (ClientPrefs.watermarkStyle == 'JS Engine') {
+			EngineWatermark = new FlxText(4,FlxG.height * 0.1 - 70,0,"", 15);
+			EngineWatermark.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.scrollFactor.set();
+			if (ClientPrefs.downScroll) EngineWatermark.y = (FlxG.height * 0.9 + 50);
+			add(EngineWatermark);
+			EngineWatermark.text = "You are now playing " + SONG.song + " on " + CoolUtil.difficultyString() + "! (PRE v" + MainMenuState.psychEngineJSVersion + ")";
+		}
+		if (ClientPrefs.watermarkStyle == 'Dave Engine') {
+			EngineWatermark = new FlxText(4,FlxG.height * 0.9 + 50,0,"", 16);
+			EngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.scrollFactor.set();
+			add(EngineWatermark);
+			EngineWatermark.text = SONG.song;
+		}
+		if (ClientPrefs.watermarkStyle == 'Prism Engine') {
+			EngineWatermark = new FlxText(4,FlxG.height * 0.9 + 50,0,"", 16);
+			EngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.scrollFactor.set();
+			add(EngineWatermark);
+			EngineWatermark.text = SONG.song + " / Prism ";
+		}
+		if (ClientPrefs.watermarkStyle == "Null 'Engine'") {
+			EngineWatermark = new FlxText(4,FlxG.height * 0.9 + 50,0,"", 16);
+			EngineWatermark.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, OUTLINE,FlxColor.BLACK);
+			EngineWatermark.scrollFactor.set();
+			add(EngineWatermark);
+			EngineWatermark.text = SONG.song + " " + CoolUtil.difficultyString() + " - Prism Engine v";
+		}
+
 		timeBarBG = new AttachedSprite('timeBar');
 		timeBarBG.x = timeTxt.x;
 		timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
